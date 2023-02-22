@@ -18,5 +18,3 @@ struct RMLocation: Codable {
     let created: String
 
 }
-
-
