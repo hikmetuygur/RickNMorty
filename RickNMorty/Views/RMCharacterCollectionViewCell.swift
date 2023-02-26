@@ -14,8 +14,9 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
         return imageView
     }()
 
@@ -42,6 +43,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(imageView, nameLabel, statusLabel)
         addConstraints()
+        contentView.layer.cornerRadius = 16
     }
 
     required init?(coder: NSCoder) {
@@ -53,19 +55,19 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
             statusLabel.heightAnchor.constraint(equalToConstant: 36),
             nameLabel.heightAnchor.constraint(equalToConstant: 36),
 
-            statusLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 4),
-            statusLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
+            statusLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 7),
+            statusLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -7),
 
-            nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 4),
-            nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
+            nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 7),
+            nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -7),
 
             statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
-            nameLabel.bottomAnchor.constraint(equalTo: statusLabel.topAnchor, constant: -4),
+            nameLabel.bottomAnchor.constraint(equalTo: statusLabel.topAnchor),
 
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 4),
-            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -4),
-            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -4),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            imageView.bottomAnchor.constraint(equalTo: nameLabel.topAnchor),
             ])
     }
 
